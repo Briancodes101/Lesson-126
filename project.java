@@ -1,39 +1,17 @@
-interface Vehicle {
-    void gear(int x);
-    void speedUp(int x);
-    void applyBreaks(int x);
-}
+import java.util.Scanner;
 
-class Car implements Vehicle {
-    int speed;
-    int gear;
-
-    @Override
-    public void gear(int newGear) {
-        gear = newGear;
-    }
-
-    @Override
-    public void speedUp(int increment) {
-        speed += increment;
-    }
-    
-    @Override
-    public void applyBreaks(int decrement) {
-        speed -= decrement;
-    }
-
-    public void printStates() {
-        System.out.println("speed: "+ speed +" gear: "+ gear);
-    }
-}
-
-class Main {
+public class Main {
     public static void main(String[] args) {
-        Car car = new Car();
-        car.gear(2);
-        car.speedUp(3);
-        car.applyBreaks(2);
-        car.printStates();
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            System.out.println("Enter two numbers to divide");
+            int x = sc.nextInt();
+            int y = sc.nextInt();
+            int z = x / y;
+            System.out.println(x+" divided by "+y+" = "+z);
+        } catch (ArithmeticException e) {
+            System.out.println(e.toString());
+        }
     }
 }
